@@ -1,0 +1,32 @@
+server:
+  port: 8088
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/student_knowledge_db?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: MiYu0707
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+# JWT配置
+jwt:
+  secret: ZHNmYWRzZmFzZGZhc2RzYWRhc2Rhc2RzYWRhc2RzZGFzZGFzZHNhZGFzZGFzZA==
+  expiration: 86400000  # 24小时(毫秒)
+
+logging:
+  level:
+    studentknowledge: debug
+    org.hibernate.SQL: warn
